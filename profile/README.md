@@ -8,4 +8,5 @@
 -
 ### Contact With us
 [![Email](https://img.shields.io/badge/Email-python--bale--bot@googlegroups.com-blue?logo=Gmail&logoColor=white)](mailto:python-bale-bot@googlegroups.com)
-[![Discord](https://img.shields.io/badge/Support_Server-red?logo=Discord&logoColor=white)](https://discord.gg/bYHEzyDe2j)
+[![Discord](https://img.shields.io/badge/Support_Server-bYHEzyDe2j-blue?logo=Discord&logoColor=white)](https://discord.gg/bYHEzyDe2j)
+[![Our Site](https://img.shields.io/badge/Our_site-python--bale--bot.ir-blue?logo=GitHub&logoColor=white)](https://python-bale-bot.ir)
