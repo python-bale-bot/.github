@@ -1,0 +1,46 @@
+name: Build and Publish WHL
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel
+
+      - name: Clone python-bale-bot repository
+        run: git clone https://github.com/python-bale-bot/python-bale-bot
+
+      - name: Build WHL
+        run: |
+          python -m pip install --upgrade build
+          python -m build --wheel python-bale-bot
+          mv python-bale-bot/dist/*.whl python-bale-bot/dist/latest-version.whl
+
+      - name: Move WHL to Versions
+        run: |
+          mkdir -p versions
+          mv python-bale-bot/dist/latest-version.whl versions
+
+      - name: Push WHL File
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add versions
+          git commit -m "Generate new latest version from python-bale-bot package"
+          git push
