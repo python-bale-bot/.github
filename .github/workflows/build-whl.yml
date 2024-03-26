@@ -33,12 +33,12 @@ jobs:
         run: |
           python -m pip install --upgrade build
           python -m build --wheel python-bale-bot
-          mv python-bale-bot/dist/*.whl python-bale-bot/dist/latest-version.whl
+          mv python-bale-bot/dist/*.whl python-bale-bot/dist/python_bale_bot-any-py3-none-any.whl
 
       - name: Move WHL to Versions
         run: |
           mkdir -p versions
-          mv python-bale-bot/dist/latest-version.whl versions
+          mv python-bale-bot/dist/*.whl versions
 
       - name: Push WHL File
         run: |
